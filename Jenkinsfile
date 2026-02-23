@@ -3,13 +3,13 @@ pipeline {
     environment {
         DOCKER_CREDENTIALS_ID = 'docker-credentials-id'
         APP_NAME              = 'my-node-app'
-        IMAGE_NAME            = "worldvit/${APP_NAME}"
+        IMAGE_NAME            = "seohyunkirn/${APP_NAME}"
         IMAGE_TAG             = "v${env.BUILD_NUMBER}"
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/worldvit/jenkins-cicd.git'
+                git branch: 'main', url: 'https://github.com/kksshh926/test-001.git'
                 script {
                     // 마지막 커밋 메시지를 추출하여 환경 변수에 저장
                     env.GIT_COMMIT_MSG = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
