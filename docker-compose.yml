@@ -1,8 +1,10 @@
+version: "3.8"
+
 services:
   jenkins:
-    build: .  # 위에서 만든 Dockerfile을 사용하여 빌드
+    build: .   # 위에서 만든 Dockerfile을 사용하여 빌드
     container_name: jenkins-master
-    user: root # docker.sock 접근 권한을 위해 root로 실행 (현장에서는 권한 그룹을 따로 분리하기도 함)
+    user: root   # docker.sock 접근 권한을 위해 root로 실행
     restart: always
     ports:
       - "8080:8080"
@@ -14,4 +16,3 @@ services:
 
 volumes:
   jenkins_home:
-

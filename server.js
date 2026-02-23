@@ -1,13 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = 3000;
 
-app.get('/info', (req, res) => {
-    res.json({
-        commitMsg: process.env.COMMIT_MSG || '메시지 없음',
-        buildTime: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
-    });
-});
-
+// 'public' 폴더 안의 정적 파일 제공
 app.use(express.static(path.join(__dirname, 'public')));
-app.listen(3000, () => console.log('Server running on 3000'));
+
+app.listen(port, () => {
+  console.log(`Express 웹 서버가 ${port}번 포트에서 가동 중입니다...`);
+});
